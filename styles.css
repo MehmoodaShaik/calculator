@@ -1,0 +1,147 @@
+/* General styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e6e6e6;
+    margin: 0;
+}
+
+/* Calculator container */
+.calculator {
+    width: 340px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fdfdfd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Mode Toggle */
+.mode-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.mode-toggle button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #009688;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mode-toggle button:hover {
+    background-color: #00796b;
+}
+
+/* Display screen */
+.display input {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: right;
+    border: none;
+    background: #333;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+/* Buttons grid */
+.buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Separate row for the equal button */
+.equal-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Standard buttons */
+.buttons button, #scientific button {
+    height: 50px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 12px;
+    background: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+/* Updated = button shape to match other buttons */
+button.equal {
+    width: 100%;
+    height: 50px; /* Same height as other buttons */
+    background-color: #009688;
+    color: white;
+    border-radius: 12px; /* Same rounded shape as other buttons */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button.equal:active {
+    background-color: #00796b;
+}
+
+.buttons button:active, #scientific button:active {
+    transform: scale(0.95);
+}
+
+/* Scientific buttons grid */
+#scientific {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+    opacity: 0; /* Hidden by default */
+    transform: scaleY(0); /* Collapsed by default */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Pop-out effect when scientific mode is active */
+#scientific.active {
+    opacity: 1;
+    transform: scaleY(1); /* Expanded when active */
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #212121;
+}
+
+.dark-mode .calculator {
+    background-color: #333;
+}
+
+.dark-mode .display input {
+    background-color: #444;
+    color: #e6e6e6;
+}
+
+.dark-mode .buttons button, 
+.dark-mode #scientific button {
+    background: #555;
+    color: #fff;
+}
+
+.dark-mode button.equal {
+    background-color: #009688;
+}
